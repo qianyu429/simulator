@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="sqlContext" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <!--base mapper-->
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="com.shhxzq.bs.util.MyMapper"/>
+        </plugin>
+
+        <!--lombok plugin-->
+        <plugin type="com.shhxzq.bs.util.LombokPlugin"/>
+
+        <!--jdbc driver-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://10.199.105.111:3306/pentos"
+                        userId="pentos" password="pentos"/>
+
+        <!--Xxx.java-->
+        <javaModelGenerator targetPackage="com.shhxzq.bs.model" targetProject="../bs-core/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!--XxxMapper.xml-->
+        <sqlMapGenerator targetPackage="mapper" targetProject="../bs-core/src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!--XxxMapper.java-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.shhxzq.bs.mapper" targetProject="../bs-core/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!--table name-->
+        <table tableName="th_order">
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+        </table>
+    </context>
+</generatorConfiguration>

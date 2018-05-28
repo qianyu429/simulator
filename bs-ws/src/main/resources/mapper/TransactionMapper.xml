@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shhxzq.bs.mapper.TransactionMapper">
+  <resultMap id="BaseResultMap" type="com.shhxzq.bs.model.Transaction">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="be_ser" jdbcType="VARCHAR" property="beSer" />
+    <result column="bs_ser" jdbcType="VARCHAR" property="bsSer" />
+    <result column="mer_id" jdbcType="VARCHAR" property="merId" />
+    <result column="bank_no" jdbcType="VARCHAR" property="bankNo" />
+    <result column="acco_no" jdbcType="VARCHAR" property="accoNo" />
+    <result column="trans_type" jdbcType="VARCHAR" property="transType" />
+    <result column="amount" jdbcType="VARCHAR" property="amount" />
+    <result column="resp_code" jdbcType="VARCHAR" property="respCode" />
+    <result column="trans_stat" jdbcType="VARCHAR" property="transStat" />
+    <result column="stat" jdbcType="VARCHAR" property="stat" />
+    <result column="work_day" jdbcType="VARCHAR" property="workDay" />
+    <result column="send_time" jdbcType="VARCHAR" property="sendTime" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="created_date" jdbcType="VARCHAR" property="createdDate" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdTime" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedTime" />
+  </resultMap>
+</mapper>

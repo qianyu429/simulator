@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shhxzq.bs.mapper.MenuMapper">
+    <resultMap id="BaseResultMap" type="com.shhxzq.bs.model.Menu">
+        <!--
+          WARNING - @mbggenerated
+        -->
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="description" property="description" jdbcType="VARCHAR"/>
+        <result column="pid" property="pid" jdbcType="BIGINT"/>
+        <result column="url" property="url" jdbcType="VARCHAR"/>
+        <result column="status" property="status" jdbcType="VARCHAR"/>
+        <result column="sort" property="sort" jdbcType="INTEGER"/>
+        <result column="icon" property="icon" jdbcType="VARCHAR"/>
+        <result column="created_at" property="createdTime" jdbcType="TIMESTAMP"/>
+        <result column="updated_at" property="updatedTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <select id="selectMenusByUserId" parameterType="Long" resultMap="BaseResultMap">
+        SELECT
+        DISTINCT m.*
+        FROM
+        be_simulator_menu m, be_simulator_role_menu rm, be_simulator_user_role ur
+        <where>
+            m.id = rm.menu_id
+            AND rm.role_id = ur.role_id
+            AND ur.user_id = #{userId}
+        </where>
+        ORDER BY
+        sort asc
+    </select>
+
+    <select id="selectMenusByRoleId" parameterType="long" resultMap="BaseResultMap">
+        SELECT
+          m.*
+        FROM
+          be_simulator_menu m, be_simulator_role_menu rm
+        WHERE
+          m.id = rm.menu_id
+          AND m.status = 'able'
+          AND rm.role_id = #{roleId}
+        ORDER BY
+          sort asc
+    </select>
+</mapper>

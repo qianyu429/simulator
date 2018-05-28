@@ -1,0 +1,19 @@
+
+spring:
+  datasource:
+    url: jdbc:mysql://10.199.105.111:3306/pentos?useUnicode=true&characterEncoding=UTF-8&useOldAlias
+
+app:
+  dzpath:
+
+be:
+  server: 10.199.105.122
+  port: 8080
+
+spw:
+  server: 10.199.105.123
+  port: 8080
+
+hop:
+  server: 10.199.105.150
+  port: 6080

@@ -1,0 +1,19 @@
+
+spring:
+  datasource:
+    url: jdbc:mysql://10.199.111.1:3306/pentos?useUnicode=true&characterEncoding=UTF-8&useOldAlias
+
+app:
+  dzpath: /srv/apps/sim/
+
+be:
+  server: 10.199.111.7
+  port: 8080
+
+spw:
+  server: 10.199.111.8
+  port: 8080
+
+hop:
+  server: 10.199.111.18
+  port: 8080

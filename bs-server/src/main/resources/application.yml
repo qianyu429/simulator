@@ -1,0 +1,38 @@
+spring.profiles.active: @env@
+
+server:
+  port: 7082
+  context-path: /
+
+multipart:
+  maxFileSize: 2048KB
+  maxRequestSize: 2048KB
+
+spring:
+  datasource:
+    name: test
+    username: pentos
+    password: pentos
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    filters: stat
+    maxActive: 20
+    initialSize: 3
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+
+app:
+  dzpath: /srv/apps/sim/
+  prop:
+    - @project.parent.name@
+    - @pom.version@
+    - 康永敢
+    - 提交
+    - 取消
